@@ -39,13 +39,13 @@ function Worm(theta){
 		strokeWeight(2);
 		// line(trail.x, trail.y, 1, 1);
 		this.trails.forEach(function(trail){
-			stroke(random(255));
+			stroke(random(50), random(250), random(50));
 			ellipse(trail.x, trail.y, 1, 1);
-			line(trail.x, trail.y, 1, 1);
+			line(4/trail.x, trail.y, 1, 1);
 		});
 		// ellipse(x, y, 1, 1);
 		this.trails.push(new Trail(x, y));
-		this.theta += this.theta*0.0091;
+		this.theta += this.theta*0.000091*x;
 	};
 }
 
