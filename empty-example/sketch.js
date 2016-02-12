@@ -45,7 +45,7 @@ function Worm(theta){
 		});
 		// ellipse(x, y, 1, 1);
 		this.trails.push(new Trail(x, y));
-		this.theta += this.theta*0.009;
+		this.theta += this.theta*0.0091;
 	};
 }
 
