@@ -19,10 +19,10 @@ function Trail(x, y) {
 	this.y = y;
 }
 
-function Worm2(theta){
+function Worm(theta){
 	this.theta = theta;
 	this.trails = []
-	this.display = function(){
+	this.display = function(thetaMultiplyer, colorArr){
 		// Draw the ellipse at the cartesian coordinate
 		var x = r * cos(this.theta)*noise(xoff);
 		var y = r * sin(this.theta)*noise(yoff);
@@ -31,13 +31,12 @@ function Worm2(theta){
 		strokeWeight(2);
 		// line(trail.x, trail.y, 1, 1);
 		this.trails.forEach(function(trail){
-			stroke(random(50), random(50), random(250));
+			stroke(random(colorArr[0]), random(colorArr[1]), random(colorArr[2]));
 			ellipse(trail.x, trail.y, 1, 1);
 			line(4/trail.x, trail.y, 1, 1);
 		});
 		// ellipse(x, y, 1, 1);
 		this.trails.push(new Trail(x, y));
-		this.theta += this.theta*0.000995*x;
+		this.theta += this.theta*thetaMultiplyer*x;
 	};
 }
-
